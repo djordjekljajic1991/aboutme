@@ -1,0 +1,70 @@
+@keyframes letteranim {
+  0% {
+    transform: scale(1, 1);
+    color: #3bc9db;
+  }
+  60% {
+    transform: scale(1.5, 0.7);
+  }
+  88% {
+    transform: scale(0.8, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes texttypping {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes texttypping-about {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.animation-observer {
+  .blast-child:first-child {
+    opacity: 0;
+    animation: texttypping 2s steps(40, end);
+    animation-iteration-count: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-fill-mode: forwards;
+  }
+  .blast-child:nth-child(2) {
+    opacity: 0;
+    animation: texttypping 2s steps(40, end);
+    animation-iteration-count: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-fill-mode: forwards;
+    animation-delay: 0.4s;
+  }
+  .blast-child:nth-child(3) {
+    opacity: 0;
+    animation: texttypping 3s steps(40, end);
+    animation-iteration-count: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-fill-mode: forwards;
+    animation-delay: 1.8s;
+  }
+}

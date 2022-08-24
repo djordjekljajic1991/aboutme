@@ -1,0 +1,12 @@
+.section-about {
+  background-color: #222;
+}
+
+.blast-childs {
+  opacity: 0;
+  animation: texttypping-about 2s steps(40, end);
+  animation-iteration-count: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+}
