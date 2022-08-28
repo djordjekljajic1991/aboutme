@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   height: 100vh;
   background-color: #0f0f0f;
   position: fixed;
@@ -66,4 +65,20 @@
     color: #3bc9db;
     transition: all 0.3s;
   }
+}
+
+.sidebar__icons-box {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+  justify-content: center;
+}
+.sidebar__icon_link {
+  color: #3bc9db;
+  fill: red;
+}
+.logo-icon {
+  width: 5rem;
+  height: 4rem;
+  color: #3bc9db;
 }

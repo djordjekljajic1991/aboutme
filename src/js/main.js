@@ -1,11 +1,21 @@
-const { afterMain } = require("@popperjs/core");
-
+let inputValue;
 const blasts = document.querySelectorAll(".blast");
-console.log(typeof blasts);
+
 const blastsHome = [];
 const blastsAbout = [];
 const blastsContact = [];
 
+document
+  .querySelector(".sidebar_lists")
+  .addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (e.target.classList.contains("lists_link")) {
+      const id = e.target.getAttribute("href");
+
+      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+    }
+  });
 blasts.forEach((blast) => {
   if (blast.closest(".section-home")) {
     return blastsHome.push(blast);
@@ -67,38 +77,91 @@ observer.observe(document.querySelector(".blast-child-home"));
 observer.observe(document.querySelector(".blast-child-about"));
 observer.observe(document.querySelector(".blast-child-contact"));
 
+/////////////////////////////////
 ///////border botom animation
+const animationHelper = document.querySelectorAll(".animation_helper");
+const inputField = document.querySelectorAll(".input__field");
 
-const inputField = document.querySelectorAll(".animation_helper");
+const isEmpty = (str) => !str.trim().length;
 
+const clearAnimation = function () {
+  animationHelper.forEach((el) => {
+    el.classList.remove("border__bottom-animation");
+  });
+};
+const clearAllAnimation = function () {
+  animationHelper.forEach((el) => {
+    el.classList.remove("border__bottom-animation");
+    el.classList.remove("border__bottom-animation-red");
+  });
+};
+let data;
 inputField.forEach((el) => {
-  el.closest(".animated").addEventListener("click", function (e) {
-    inputField.forEach((el) => {
-      el.classList.remove("border__bottom-animation");
-    });
-    el.classList.add("border__bottom-animation");
+  inputValue;
+  el.addEventListener("focus", function (e) {
+    e.preventDefault();
+    clearAnimation();
+
+    data = e.path[1].children[1];
+    inputValue = e.path[0];
+    data.classList.remove("border__bottom-animation-red");
+    data.classList.add("border__bottom-animation");
+  });
+
+  el.addEventListener("blur", function (e) {
+    e.preventDefault();
+    inputValue = e.path[0];
+    checkInputField(inputValue);
   });
 });
 
+///////////////////////////////////
 //////send message
-const form = document.querySelector(".btn__send-msg");
 
-form.addEventListener("click", function (e) {
+const checkInputField = function (inputField) {
+  const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  if (
+    inputValue.getAttribute("type") === "email" &&
+    !inputValue.value.match(mailFormat)
+  ) {
+    {
+      inputValue.nextElementSibling.classList.add(
+        "border__bottom-animation-red"
+      );
+      return false;
+    }
+  }
+  if (isEmpty(inputValue.value) === true) {
+    inputValue.nextElementSibling.classList.add("border__bottom-animation-red");
+    return false;
+  }
+};
+
+const checkBeforeSend = function () {
+  const dataErr = [];
+  inputField.forEach((el) => {
+    inputValue = el;
+    checkInputField(inputValue);
+    if (checkInputField() === false) {
+      dataErr.push(false);
+    }
+  });
+  if (dataErr.length === 0) sendEmail();
+};
+
+const send = document.querySelector(".btn__send-msg");
+
+send.addEventListener("click", function (e) {
   e.preventDefault();
-
-  sendEmail();
-  document.querySelector(".contact-form").reset();
-  // return false;
+  checkBeforeSend();
 });
 
 const sendEmail = function () {
   Email.send({
-    //  SecureToken: "1953283e-c992-44d1-a1a4-19d8c53b1bda",
-    Host: "smtp.elasticemail.com",
-    Username: "djolek91@gmail.com",
-    Password: "8C742EA9F11698EE340BEA9A38F2FDB4AC36",
+    SecureToken: "1953283e-c992-44d1-a1a4-19d8c53b1bda",
     To: "djolek91@gmail.com",
-    From: document.getElementsByName("email")[0].value,
+    From: "djolek91@gmail.com",
     Subject: document.getElementsByName("subject")[0].value,
     Body:
       "Name" +
@@ -107,11 +170,9 @@ const sendEmail = function () {
       document.getElementsByName("email")[0].value +
       "<br> Message: " +
       document.getElementsByName("msg")[0].value,
-  }).then((message) => alert("Message Sent Succesfully"));
-  console.log(Email.send);
+  }).then(function () {
+    alert("Message Sent Succesfully");
+    document.querySelector(".contact-form").reset();
+    clearAllAnimation();
+  });
 };
-
-const btnSendMsg = document.querySelector(".btn__send-msg");
-btnSendMsg.addEventListener("click", function () {
-  const name = document.getElementsByName("name")[0].value;
-});

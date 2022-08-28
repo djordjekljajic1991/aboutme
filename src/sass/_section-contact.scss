@@ -44,7 +44,13 @@
 }
 .border__bottom-animation {
   background-color: $color-text-sec !important;
-  animation: border_anim 2s linear;
+  animation: border_anim 0.4s linear;
+  animation-fill-mode: forwards !important;
+  backface-visibility: hidden;
+}
+.border__bottom-animation-red {
+  background-color: red !important;
+  animation: border_anim 0.4s linear;
   animation-fill-mode: forwards !important;
   backface-visibility: hidden;
 }

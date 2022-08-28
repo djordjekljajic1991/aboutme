@@ -76,6 +76,24 @@
   transition: all 0.3s;
 }
 
+.sidebar__icons-box {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+  justify-content: center;
+}
+
+.sidebar__icon_link {
+  color: #3bc9db;
+  fill: red;
+}
+
+.logo-icon {
+  width: 5rem;
+  height: 4rem;
+  color: #3bc9db;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -233,7 +251,14 @@ p {
 
 .border__bottom-animation {
   background-color: #3bc9db !important;
-  animation: border_anim 2s linear;
+  animation: border_anim 0.4s linear;
+  animation-fill-mode: forwards !important;
+  backface-visibility: hidden;
+}
+
+.border__bottom-animation-red {
+  background-color: red !important;
+  animation: border_anim 0.4s linear;
   animation-fill-mode: forwards !important;
   backface-visibility: hidden;
 }

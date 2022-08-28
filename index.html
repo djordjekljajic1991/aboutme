@@ -12,8 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/main.css" />
-    <script type="module" src="src/js/main.js"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="module" src="./src/js/main.js"></script>
 
     <title>Đorđe Kljajić Portfolio</title>
 
@@ -42,13 +42,32 @@
               <a class="lists_link" href="#about">About </a>
             </li>
             <li class="list">
-              <a class="lists_link" href="#myskils">My Skills</a>
+              <a class="lists_link" href="#my_skils">My Skills</a>
             </li>
             <!-- <li class="list"><a class="lists_link" href="#work">Work</a></li> -->
             <li class="list">
               <a class="lists_link" href="#contact">Contact</a>
             </li>
           </ul>
+          <div class="sidebar__icons-box">
+            <a
+              class="sidebar__icon_link"
+              target="_target "
+              href="https://linkedin.com/in/đorđe-kljajić-87903b222"
+            >
+              <ion-icon class="logo-icon" name="logo-linkedin"></ion-icon>
+            </a>
+            <a
+              class="sidebar__icon_link"
+              target="_target "
+              href="https://github.com/djordjekljajic1991"
+            >
+              <ion-icon class="logo-icon" name="logo-github"></ion-icon>
+            </a>
+            <a class="sidebar__icon_link" href="mailto:djolek91@gmail.com">
+              <ion-icon class="logo-icon" name="mail-outline"></ion-icon>
+            </a>
+          </div>
         </div>
       </menu>
 
@@ -236,6 +255,7 @@
           </div>
         </div>
       </section>
+      <section id="my_skils" class="section-full"></section>
       <section id="contact" class="section-full section-contact">
         <div class="section-box">
           <div class="text-box text-box-about">
@@ -283,7 +303,7 @@
               use the form.
             </h2>
             <div class="contact-form-box">
-              <form class="contact-form" autocomplete="on">
+              <form class="contact-form" id="form" autocomplete="on">
                 <ul>
                   <li class="animated">
                     <input
@@ -339,6 +359,15 @@
         <div class="second-page-contact"></div>
       </section>
     </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
   </body>
+
   <script src="https://smtpjs.com/v3/smtp.js"></script>
 </html>
