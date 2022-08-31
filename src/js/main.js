@@ -4,25 +4,31 @@ const blasts = document.querySelectorAll(".blast");
 const blastsHome = [];
 const blastsAbout = [];
 const blastsContact = [];
+const blastsMySkills = [];
 
-document
-  .querySelector(".sidebar_lists")
-  .addEventListener("click", function (e) {
+///////smoooth scrolling
+////////////////////
+const links = document.querySelectorAll(".lists_link");
+
+links.forEach((el) => {
+  el.addEventListener("click", function (e) {
     e.preventDefault();
-
-    if (e.target.classList.contains("lists_link")) {
-      const id = e.target.getAttribute("href");
-
-      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
-    }
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   });
+});
+
+//
+/////
 blasts.forEach((blast) => {
   if (blast.closest(".section-home")) {
     return blastsHome.push(blast);
   }
   if (blast.closest(".section-contact")) {
     return blastsContact.push(blast);
-  } else return blastsAbout.push(blast);
+  }
+  if (blast.closest(".section-my-skills")) return blastsMySkills.push(blast);
+  else return blastsAbout.push(blast);
 });
 
 const addAnimationClassList = function (blast) {
@@ -51,20 +57,23 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       if (entry.target.classList.contains("section-home")) {
         entry.target.classList.add("animation-observer");
-      }
-
-      if (entry.target.classList.contains("blast-child-about")) {
-        animationFunc(blastsAbout);
-        entry.target.classList.add("blast-childs");
+        animationFunc(blastsHome);
         observer.unobserve(entry.target);
       }
-      if (entry.target.classList.contains("blast-child-home")) {
-        animationFunc(blastsHome);
+      if (entry.target.classList.contains("blast-child-about")) {
+        entry.target.classList.add("animation-blast-child-about");
+        animationFunc(blastsAbout);
+        observer.unobserve(entry.target);
+      }
+
+      if (entry.target.classList.contains("section-my-skills")) {
+        animationFunc(blastsMySkills);
+        entry.target.classList.add("animation-observer-2-rows");
         observer.unobserve(entry.target);
       }
       if (entry.target.classList.contains("blast-child-contact")) {
         animationFunc(blastsContact);
-        entry.target.classList.add("blast-childs");
+        entry.target.classList.add("animation-blast-child-contact");
         observer.unobserve(entry.target);
       }
     }
@@ -72,9 +81,8 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 observer.observe(document.querySelector(".section-home"));
-observer.observe(document.querySelector(".blast-child-home"));
-
 observer.observe(document.querySelector(".blast-child-about"));
+observer.observe(document.querySelector(".section-my-skills"));
 observer.observe(document.querySelector(".blast-child-contact"));
 
 /////////////////////////////////
@@ -176,3 +184,24 @@ const sendEmail = function () {
     clearAllAnimation();
   });
 };
+
+const map = L.map("map").setView([44.8571126, 17.5214822], 12);
+console.log(L);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+// var myIcon = new L.icon({
+//   iconUrl: "/logo.png",
+//   iconSize: [38, 95],
+//   iconAnchor: [22, 94],
+//   popupAnchor: [-3, -76],
+//    shadowUrl: "/src/img/logo.png",
+//   shadowSize: [68, 95],
+//   shadowAnchor: [22, 94],
+// });
+L.marker([44.8571126, 17.5214822]).addTo(map);
+
+//L.marker([44.8571126, 17.5214822]).addTo(map).bindPopup("dsajdj").openPopup;
+//L.marker([44.8571126, 17.5214822], { icon: myIcon }).addTo(map);

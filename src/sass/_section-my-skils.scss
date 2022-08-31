@@ -1,0 +1,49 @@
+.section-my-skills {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+.second-page-my-skills {
+  display: flex;
+  align-items: flex-end;
+}
+.anim-box {
+  width: 60rem;
+  height: 60rem;
+  margin: auto 0;
+  display: grid;
+  grid-template-columns: 6rem;
+  grid-template-rows: 6rem;
+  place-content: center;
+}
+.span-about {
+  color: $color-text-sec;
+  font-size: 6rem;
+  grid-area: 1/1;
+  line-height: 6rem;
+  text-align: center;
+  animation: spin 16s var(--d, 0s) linear infinite; /* duration = 12s, numbor of item = 6 so a delay of 12/6 = 2s */
+  transform: rotate(0deg) translate(20rem) rotate(0deg);
+  //transform: rotateX(-66.66deg);
+}
+@keyframes spin {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0.01;
+  }
+
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(1turn) translate(45rem) rotate(-1turn);
+  }
+}

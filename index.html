@@ -12,8 +12,20 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
     <link rel="stylesheet" href="./css/main.css" />
-    <script type="module" src="./src/js/main.js"></script>
+    <script type="module" src="./src/js/main.js" defer></script>
 
     <title>Đorđe Kljajić Portfolio</title>
 
@@ -29,22 +41,27 @@
     <div class="container">
       <menu class="sidebar">
         <div class="logo">
-          <img class="logo_img" src="/src/img/logo-transparent.png" />
-          <h1 class="heading__logo">Đorđe</h1>
+          <a class="lists_link home_link" href="#home">
+            <img class="logo_img" src="/src/img/logo-transparent.png" />
+            <h1 class="heading__logo">Đorđe</h1>
+          </a>
           <h3 class="heading__description">Web Developer</h3>
         </div>
+
         <div class="sidebar_lists-box">
           <ul class="lists sidebar_lists">
-            <li class="list">
+            <!-- <li class="list">
               <a class="lists_link" href="#home">Home</a>
-            </li>
+            </li> -->
             <li class="list">
               <a class="lists_link" href="#about">About </a>
             </li>
             <li class="list">
               <a class="lists_link" href="#my_skils">My Skills</a>
             </li>
-            <!-- <li class="list"><a class="lists_link" href="#work">Work</a></li> -->
+            <li class="list">
+              <a class="lists_link" href="#work">Work</a>
+            </li>
             <li class="list">
               <a class="lists_link" href="#contact">Contact</a>
             </li>
@@ -202,6 +219,7 @@
           </div>
         </div>
       </section>
+
       <section id="about" class="section-full section-about">
         <div class="section-box">
           <div class="text-box text-box-about">
@@ -237,32 +255,129 @@
                 >
               </div>
             </h1>
-            <p>
-              I'm a Front-End Developer located in Bosnia and Herzegovina. I
-              have a serious passion for UI effects, animation an creating
-              intuitive, dynamic user expiriences.
-            </p>
-            <p>
-              Well-organised person, problem solver, independent employee with
-              high attention to detail. Fan of F1. A family person and father of
-              two childs.
-            </p>
-            <p>
-              Interested in the entire front end spectrum and working on
-              ambitious projects with positive people.
-            </p>
-            <p>Let's make something special.</p>
+            <div class="description-box">
+              <p>
+                I'm a Front-End Developer located in Bosnia and Herzegovina. I
+                have a serious passion for UI effects, animation an creating
+                intuitive, dynamic user expiriences.
+              </p>
+              <p>
+                Well-organised person, problem solver, independent employee with
+                high attention to detail. Fan of F1. A family person and father
+                of two childs.
+              </p>
+              <p>
+                Interested in the entire front end spectrum and working on
+                ambitious projects with positive people.
+              </p>
+              <p>
+                <a class="text_link lists_link" href="#contact"
+                  >Let's make something special.
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="second-box-about">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  class="card-img"
+                  src="/src/img/icon-svg/UnknowPerson.png"
+                />
+                <a class="text_link card_link">Hire me!</a>
+              </div>
+              <div class="flip-card-back">
+                <img class="card-img" src="/src/img/profile.png" />
+                <h1 class="heading_card">Đorđe Kljajić</h1>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <section id="my_skils" class="section-full"></section>
+
+      <section id="my_skils" class="section-full section-my-skills">
+        <div class="section-box">
+          <h1 aria-label="Skills & Experience" class="blast-root">
+            <div class="blast-child blast-child-my-skills">
+              <span class="blast" aria-hidden="true" style="opacity: 1">S</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">k</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">i</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">l</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">l</span>
+              <span
+                class="blast right_white_space"
+                aria-hidden="true"
+                style="opacity: 1"
+                >s
+              </span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">&</span>
+            </div>
+            <div class="blast-child blast-child-my-skills">
+              <span class="blast" aria-hidden="true" style="opacity: 1"
+                >E
+              </span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">x</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">p</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">e</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">r</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">i</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">e</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">n</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">c</span>
+              <span class="blast" aria-hidden="true" style="opacity: 1">e</span>
+            </div>
+          </h1>
+          \
+          <div class="description-box">
+            <p>
+              Since beginning my journey as a freelance developer nearly 1 year
+              ago, I've done remote work for agencies, consulted for startups,
+              and collaborated with talented people to create web product for
+              both business and consumer use.
+            </p>
+            <p>
+              I create successful responsive websites that are fast, easy to
+              use, and built with best practices. The main area of my expertize
+              is fornt-end development, HTML, CSS, JS, bulding small and medium
+              web apps, custom plugins, features, animations, and coding
+              interactiove layouts.
+            </p>
+            <p>
+              Visit my
+              <a
+                class="text_link"
+                target="target"
+                href="https://linkedin.com/in/đorđe-kljajić-87903b222"
+                >LinkedIn</a
+              >
+              profile for more details or just
+
+              <a class="text_link lists_link" href="#contact"> contact me</a>.
+            </p>
+          </div>
+        </div>
+        <div class="second-page-my-skills">
+          <div class="anim-box">
+            <span class="span-about" style="--d: 0s">HTML</span>
+            <span class="span-about" style="--d: -2s">CSS</span>
+            <span class="span-about" style="--d: -4s">SASS</span>
+            <span class="span-about" style="--d: -6s">JavaScript</span>
+            <span class="span-about" style="--d: -8s">Bootstrap</span>
+            <span class="span-about" style="--d: -10s">JavaScript</span>
+            <span class="span-about" style="--d: -12s">npm</span>
+            <span class="span-about" style="--d: -14s">github</span>
+          </div>
+        </div>
+      </section>
+      <section id="work" class="section-full section-work">
+        <div class="section-box"></div>
+      </section>
       <section id="contact" class="section-full section-contact">
         <div class="section-box">
-          <div class="text-box text-box-about">
-            <h1
-              aria-label=" Hi, I'm Djordje Kljajic, web developer"
-              class="blast-root"
-            >
+          <div class="text-box text-box-contact">
+            <h1 aria-label=" Contact me" class="blast-root">
               <div class="blast-child blast-child-contact">
                 <span class="blast" aria-hidden="true" style="opacity: 1"
                   >C</span
@@ -355,8 +470,7 @@
             </div>
           </div>
         </div>
-
-        <div class="second-page-contact"></div>
+        <div class="second-page-contact" id="map"></div>
       </section>
     </div>
     <script

@@ -2,6 +2,7 @@ $color-text-primary: #fff;
 $color-text-sec: #3bc9db;
 $color-border-sidebar: #454545;
 $background-color-input-field: #434343;
+$background-color-card: #464646;
 * {
   margin: 0;
   padding: 0;
@@ -71,4 +72,10 @@ a {
   margin: auto;
   padding-left: 6rem;
   padding-right: 4rem;
+}
+.description-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 6rem;
 }

@@ -39,7 +39,30 @@
     opacity: 1;
   }
 }
-
+@keyframes texttypping-my-skills {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+@keyframes texttypping-contact {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
 .animation-observer {
   .blast-child:first-child {
     opacity: 0;
@@ -66,5 +89,41 @@
     white-space: nowrap;
     animation-fill-mode: forwards;
     animation-delay: 1.8s;
+  }
+}
+.animation-blast-child-about {
+  opacity: 0;
+  animation: texttypping-about 2s steps(40, end);
+  animation-iteration-count: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+}
+.animation-blast-child-contact {
+  opacity: 0;
+  animation: texttypping-contact 2s steps(40, end);
+  animation-iteration-count: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+}
+
+.animation-observer-2-rows {
+  .blast-child:first-child {
+    opacity: 0;
+    animation: texttypping-my-skills 2s steps(40, end);
+    animation-iteration-count: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-fill-mode: forwards;
+  }
+  .blast-child:nth-child(2) {
+    opacity: 0;
+    animation: texttypping-my-skills 2s steps(40, end);
+    animation-iteration-count: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
   }
 }

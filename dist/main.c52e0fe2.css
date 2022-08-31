@@ -18,6 +18,12 @@
   width: 100%;
 }
 
+.sidebar .logo .home_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .sidebar .logo .heading__description {
   color: #fff;
   font-size: 2rem;
@@ -28,12 +34,14 @@
   width: 12rem;
   height: auto;
   fill: #fff;
+  pointer-events: none;
 }
 
 .sidebar .logo .heading__logo {
   color: #fff;
   font-size: 5rem;
   display: inline-block;
+  pointer-events: none;
 }
 
 .sidebar .sidebar_lists-box {
@@ -166,6 +174,13 @@ a {
   padding-right: 4rem;
 }
 
+.description-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 6rem;
+}
+
 p {
   font-size: 3rem;
   color: #fff;
@@ -278,17 +293,88 @@ p {
   display: block;
 }
 
-.section-about {
-  background-color: #222;
+.second-page-contact {
+  width: 99%;
+  height: 99%;
+  padding-right: 1rem;
 }
 
-.blast-childs {
-  opacity: 0;
-  animation: texttypping-about 2s steps(40, end);
-  animation-iteration-count: 1;
-  overflow: hidden;
-  white-space: nowrap;
-  animation-fill-mode: forwards;
+.section-about {
+  background-color: #131313;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.text_link {
+  color: #3bc9db;
+  cursor: pointer;
+}
+
+.second-box-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card {
+  width: 25rem;
+  height: 40rem;
+  perspective: 100rem;
+  border-radius: 1rem;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 1rem;
+}
+
+.card-img {
+  margin-top: 4rem;
+  max-width: 20rem;
+  height: auto;
+  border-radius: 50%;
+}
+
+.card_link {
+  margin-top: 4rem;
+  display: inline-block;
+  font-size: 3.6rem;
+  color: #bbb;
+  border-bottom: 1px solid #bbb;
+}
+
+.heading_card {
+  font-size: 3.6rem;
+  color: #bbb;
+  padding-top: 4rem;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  background-color: #464646;
+  transform: rotateY(180deg);
+}
+
+.flip-card-front {
+  background-color: #464646;
 }
 
 @keyframes letteranim {
@@ -333,6 +419,32 @@ p {
   }
 }
 
+@keyframes texttypping-my-skills {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes texttypping-contact {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
 .animation-observer .blast-child:first-child {
   opacity: 0;
   animation: texttypping 2s steps(40, end);
@@ -360,6 +472,96 @@ p {
   white-space: nowrap;
   animation-fill-mode: forwards;
   animation-delay: 1.8s;
+}
+
+.animation-blast-child-about {
+  opacity: 0;
+  animation: texttypping-about 2s steps(40, end);
+  animation-iteration-count: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+}
+
+.animation-blast-child-contact {
+  opacity: 0;
+  animation: texttypping-contact 2s steps(40, end);
+  animation-iteration-count: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+}
+
+.animation-observer-2-rows .blast-child:first-child {
+  opacity: 0;
+  animation: texttypping-my-skills 2s steps(40, end);
+  animation-iteration-count: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+}
+
+.animation-observer-2-rows .blast-child:nth-child(2) {
+  opacity: 0;
+  animation: texttypping-my-skills 2s steps(40, end);
+  animation-iteration-count: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+.section-my-skills {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.second-page-my-skills {
+  display: flex;
+  align-items: flex-end;
+}
+
+.anim-box {
+  width: 60rem;
+  height: 60rem;
+  margin: auto 0;
+  display: grid;
+  grid-template-columns: 6rem;
+  grid-template-rows: 6rem;
+  place-content: center;
+}
+
+.span-about {
+  color: #3bc9db;
+  font-size: 6rem;
+  grid-area: 1/1;
+  line-height: 6rem;
+  text-align: center;
+  animation: spin 16s var(--d, 0s) linear infinite;
+  /* duration = 12s, numbor of item = 6 so a delay of 12/6 = 2s */
+  transform: rotate(0deg) translate(20rem) rotate(0deg);
+}
+
+@keyframes spin {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0.01;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(1turn) translate(45rem) rotate(-1turn);
+  }
 }
 
 

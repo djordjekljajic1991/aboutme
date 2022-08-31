@@ -14,7 +14,11 @@
     align-items: center;
     background-color: #000;
     width: 100%;
-
+    .home_link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .heading__description {
       color: #fff;
       font-size: 2rem;
@@ -24,11 +28,13 @@
       width: 12rem;
       height: auto;
       fill: #fff;
+      pointer-events: none;
     }
     .heading__logo {
       color: #fff;
       font-size: 5rem;
       display: inline-block;
+      pointer-events: none;
     }
   }
   .sidebar_lists-box {
