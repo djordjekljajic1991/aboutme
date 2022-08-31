@@ -4,7 +4,7 @@
   "description": "",
   "default": "index.html",
   "scripts": {
-    "start": "npx parcel index.html",
+    "start": "parcel index.html",
     "dev": "parcel server index.html --public-url / --dist-dir dist",
     "build": "parcel build index.html --dist-dir ./dist"
   },
