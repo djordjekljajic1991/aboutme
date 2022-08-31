@@ -186,7 +186,7 @@ const sendEmail = function () {
 };
 
 const map = L.map("map").setView([44.8571126, 17.5214822], 12);
-console.log(L);
+
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
