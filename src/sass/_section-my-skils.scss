@@ -1,49 +1,66 @@
 .section-my-skills {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
 }
 .second-page-my-skills {
   display: flex;
   align-items: flex-end;
+  position: relative;
+  margin-right: 2rem;
+  @include respond(tab-port) {
+    height: 60rem;
+  }
 }
 .anim-box {
-  width: 60rem;
-  height: 60rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 100%;
   margin: auto 0;
   display: grid;
-  grid-template-columns: 6rem;
-  grid-template-rows: 6rem;
+  grid-template-columns: 5rem;
+  grid-template-rows: 5rem;
   place-content: center;
 }
 .span-about {
   color: $color-text-sec;
-  font-size: 6rem;
+  font-size: 4.5rem;
   grid-area: 1/1;
-  line-height: 6rem;
+  line-height: 4rem;
   text-align: center;
   animation: spin 16s var(--d, 0s) linear infinite; /* duration = 12s, numbor of item = 6 so a delay of 12/6 = 2s */
-  transform: rotate(0deg) translate(20rem) rotate(0deg);
-  //transform: rotateX(-66.66deg);
+  transform: rotate(0deg) translate(5rem, 20rem) rotate(180deg);
+  @include respond(tab-port) {
+    transform: rotate(0deg) translate(5rem, 15rem) rotate(180deg);
+  }
 }
 @keyframes spin {
   0% {
     opacity: 0;
   }
-  1% {
-    opacity: 0.01;
-  }
 
-  60% {
+  30% {
     opacity: 1;
   }
   80% {
-    opacity: 0.8;
+    opacity: 0.9;
   }
-  95% {
+  90% {
     opacity: 0;
   }
   100% {
     opacity: 0;
-    transform: rotate(1turn) translate(45rem) rotate(-1turn);
+    transform: rotate(-1turn) translate(10rem, 40rem) rotate(1turn);
+    display: none;
+    @include respond(tab-port) {
+      transform: rotate(-1turn) translate(10rem, -20rem) rotate(1turn);
+    }
   }
 }

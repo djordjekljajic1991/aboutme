@@ -1,4 +1,31 @@
 let inputValue;
+
+const openMNB = document.querySelector(".btn_open-nav");
+const closeMNB = document.querySelector(".btn_close-nav");
+
+const navList = document.querySelector(".sidebar");
+const outside = document.querySelector(".navigation-lists");
+
+openMNB.addEventListener("click", function (e) {
+  e.preventDefault();
+  navList.classList.add("mobile_navigation");
+  navList;
+  closeMNB.classList.remove("hidden");
+  openMNB.classList.add("hidden");
+});
+// outside.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   navList.classList.remove("mobile_navigation");
+//   openMNB.classList.remove("hidden");
+//   closeMNB.classList.add("hidden");
+// });
+closeMNB.addEventListener("click", function (e) {
+  e.preventDefault();
+  navList.classList.remove("mobile_navigation");
+  openMNB.classList.remove("hidden");
+  closeMNB.classList.add("hidden");
+});
+
 const blasts = document.querySelectorAll(".blast");
 
 const blastsHome = [];
@@ -186,7 +213,7 @@ const sendEmail = function () {
 };
 
 const map = L.map("map").setView([44.8571126, 17.5214822], 12);
-
+console.log(L);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',

@@ -26,7 +26,14 @@
     ></script>
     <link rel="stylesheet" href="./css/main.css" />
     <script type="module" src="./src/js/main.js" defer></script>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <title>Đorđe Kljajić Portfolio</title>
 
     <meta name="description" content="Selo Gusak" />
@@ -89,6 +96,20 @@
       </menu>
 
       <section id="home" class="section-full section-home">
+        <div class="mobile_navigation-box">
+          <button class="mobile_navigation-btn btn_open-nav">
+            <ion-icon
+              class="mobile_navigation-icon"
+              name="menu-outline"
+            ></ion-icon>
+          </button>
+          <button class="mobile_navigation-btn btn_close-nav hidden">
+            <ion-icon
+              class="mobile_navigation-icon icon__close"
+              name="close-outline"
+            ></ion-icon>
+          </button>
+        </div>
         <div class="section-box">
           <div class="text-box">
             <h1
@@ -371,9 +392,99 @@
           </div>
         </div>
       </section>
+
       <section id="work" class="section-full section-work">
-        <div class="section-box"></div>
+        <div class="section-box-my-work">
+          <div class="card">
+            <div class="site-card">
+              <img class="img-card" src="/src/img/Ihave.png" />
+            </div>
+            <div class="card_btn_box">
+              <a
+                class="card_link_my_work"
+                target="_target"
+                href="https://djordje-ihave.netlify.app/"
+              >
+                Visit site
+              </a>
+              <a
+                class="sidebar__icon_link"
+                target="_target "
+                href="https://github.com/djordjekljajic1991"
+              >
+                <ion-icon class="logo-icon" name="logo-github"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="site-card">
+              <img class="img-card" src="/src/img/gusak.png" />
+            </div>
+            <div class="card_btn_box">
+              <a
+                class="card_link_my_work"
+                target="_target"
+                href="https://djordje-ihave.netlify.app/"
+              >
+                Visit site
+              </a>
+              <a
+                class="sidebar__icon_link"
+                target="_target "
+                href="https://github.com/djordjekljajic1991"
+              >
+                <ion-icon class="logo-icon" name="logo-github"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="site-card">
+              <img class="img-card" src="/src/img/onmyfood.png" />
+            </div>
+            <div class="card_btn_box">
+              <a
+                class="card_link_my_work"
+                target="_target"
+                href="https://djordje-ihave.netlify.app/"
+              >
+                Visit site
+              </a>
+              <a
+                class="sidebar__icon_link"
+                target="_target "
+                href="https://github.com/djordjekljajic1991"
+              >
+                <ion-icon class="logo-icon" name="logo-github"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="site-card">
+              <img class="img-card" src="/src/img/recepy.png" />
+            </div>
+            <div class="card_btn_box">
+              <a
+                class="card_link_my_work"
+                target="_target"
+                href="https://djordje-ihave.netlify.app/"
+              >
+                Visit site
+              </a>
+              <a
+                class="sidebar__icon_link"
+                target="_target "
+                href="https://github.com/djordjekljajic1991"
+              >
+                <ion-icon class="logo-icon" name="logo-github"></ion-icon>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
+
       <section id="contact" class="section-full section-contact">
         <div class="section-box">
           <div class="text-box text-box-contact">
@@ -470,7 +581,9 @@
             </div>
           </div>
         </div>
-        <div class="second-page-contact" id="map"></div>
+        <div class="second-page-contact">
+          <div class="map" id="map"></div>
+        </div>
       </section>
     </div>
     <script

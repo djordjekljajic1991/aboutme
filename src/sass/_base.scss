@@ -3,6 +3,37 @@ $color-text-sec: #3bc9db;
 $color-border-sidebar: #454545;
 $background-color-input-field: #434343;
 $background-color-card: #464646;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==small-phone {
+    @media only screen and(max-width: 26.86em) {
+      @content; //420
+    }
+  }
+  @if $breakpoint==phone {
+    @media only screen and(max-width: 48.75em) {
+      @content; //780
+    }
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 61.44em) {
+      @content; //900
+    }
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and (max-width: 78.13em) {
+      //1250px
+      @content;
+    }
+  }
+  @if $breakpoint==small-desktop {
+    @media only screen and (max-width: 89.87em) {
+      @content; //1437
+    }
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -14,10 +45,6 @@ $background-color-card: #464646;
   box-sizing: inherit;
 }
 
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
 body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -27,11 +54,35 @@ body {
   user-select: none;
 }
 
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @include respond(small-desktop) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-land) {
+    font-size: 50%; //8
+  }
+  @include respond(tab-port) {
+    font-size: 43.75%; //7
+  }
+  @include respond(phone) {
+    font-size: 37.94%; //6
+  }
+  @include respond(small-phone) {
+    font-size: 31.25%; //5
+  }
+}
 .lists {
   list-style: none;
 }
 .container {
   padding-left: 25rem;
+  position: relative;
+  @include respond(phone) {
+    padding-left: 0;
+  }
 }
 a {
   text-decoration: none;
@@ -42,13 +93,20 @@ a {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  gap: 5rem;
+
   // padding: 15rem 6rem;
   background-color: #131313;
+  @include respond(tab-land) {
+    height: 100vh;
+    min-height: max-content;
+  }
   .blast-root {
     font-size: 8rem;
     color: white;
     cursor: default;
+    @include respond(tab-port) {
+      font-size: 7rem;
+    }
   }
   .blast {
     display: inline-block;
@@ -58,6 +116,9 @@ a {
   }
   .right_white_space {
     margin-right: 2rem;
+    @include respond(tab-land) {
+      margin-right: 1rem;
+    }
   }
 
   .animation {
