@@ -24,3 +24,53 @@
     border: solid 1px #fff;
   }
 }
+
+///////mobile navig
+///
+.sidebar {
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+.mobile_navigation-box {
+  display: none;
+  position: absolute;
+  top: 8rem;
+  right: 5rem;
+  z-index: 1000;
+  @include respond(phone) {
+    display: flex;
+  }
+}
+.mobile_navigation-btn {
+  color: $color-text-sec;
+  background-color: inherit;
+  border: none;
+}
+.mobile_navigation-icon {
+  align-self: center;
+  font-size: 5rem;
+  color: $color-text-sec;
+  background-color: inherit;
+  border: none;
+  border: none !important;
+}
+.hidden {
+  display: none;
+}
+
+.mobile_navigation {
+  animation: moveInBottom 0.5s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-color: #0f0f0f;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  height: 100vh;
+  width: 100%;
+}

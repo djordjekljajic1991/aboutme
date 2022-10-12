@@ -6,8 +6,8 @@ $background-color-card: #464646;
 
 @mixin respond($breakpoint) {
   @if $breakpoint==small-phone {
-    @media only screen and(max-width: 26.86em) {
-      @content; //420
+    @media only screen and(max-width: 31.56em) {
+      @content; //505
     }
   }
   @if $breakpoint==phone {
@@ -92,25 +92,42 @@ a {
 .section-full {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-
+  min-height: 100vh;
+  max-height: min-content;
   // padding: 15rem 6rem;
   background-color: #131313;
   @include respond(tab-land) {
-    height: 100vh;
-    min-height: max-content;
+    //  min-height: max-content;
   }
   .blast-root {
+    // position: relative;
     font-size: 8rem;
     color: white;
     cursor: default;
     @include respond(tab-port) {
-      font-size: 7rem;
+      font-size: 5rem;
+    }
+    @include respond(small-phone) {
+      font-size: 4rem;
     }
   }
   .blast {
     display: inline-block;
-    margin-right: -2rem;
+    margin-right: -20px;
+    @include respond(tab-land) {
+      margin-right: -17px;
+    }
+    @include respond(tab-port) {
+      margin-right: -12px;
+    }
+    @include respond(phone) {
+      margin-right: -9px;
+    }
+    @include respond(small-phone) {
+      margin-right: -6px;
+    }
+    //margin-right: -0.5%;
+
     color: #fff;
     cursor: default;
   }
@@ -118,6 +135,9 @@ a {
     margin-right: 2rem;
     @include respond(tab-land) {
       margin-right: 1rem;
+    }
+    @include respond(small-phone) {
+      margin-right: 0.2rem;
     }
   }
 

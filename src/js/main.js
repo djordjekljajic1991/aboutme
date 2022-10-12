@@ -9,7 +9,7 @@ const outside = document.querySelector(".navigation-lists");
 openMNB.addEventListener("click", function (e) {
   e.preventDefault();
   navList.classList.add("mobile_navigation");
-  navList;
+
   closeMNB.classList.remove("hidden");
   openMNB.classList.add("hidden");
 });
@@ -32,6 +32,7 @@ const blastsHome = [];
 const blastsAbout = [];
 const blastsContact = [];
 const blastsMySkills = [];
+const blastsWork = [];
 
 ///////smoooth scrolling
 ////////////////////
@@ -55,6 +56,7 @@ blasts.forEach((blast) => {
     return blastsContact.push(blast);
   }
   if (blast.closest(".section-my-skills")) return blastsMySkills.push(blast);
+  if (blast.closest(".section-work")) return blastsWork.push(blast);
   else return blastsAbout.push(blast);
 });
 
@@ -98,6 +100,11 @@ const observer = new IntersectionObserver((entries) => {
         entry.target.classList.add("animation-observer-2-rows");
         observer.unobserve(entry.target);
       }
+      if (entry.target.classList.contains("blast-child-work")) {
+        entry.target.classList.add("animation-blast-child-about");
+        animationFunc(blastsWork);
+        observer.unobserve(entry.target);
+      }
       if (entry.target.classList.contains("blast-child-contact")) {
         animationFunc(blastsContact);
         entry.target.classList.add("animation-blast-child-contact");
@@ -110,6 +117,7 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(document.querySelector(".section-home"));
 observer.observe(document.querySelector(".blast-child-about"));
 observer.observe(document.querySelector(".section-my-skills"));
+observer.observe(document.querySelector(".blast-child-work"));
 observer.observe(document.querySelector(".blast-child-contact"));
 
 /////////////////////////////////
@@ -153,7 +161,7 @@ inputField.forEach((el) => {
 ///////////////////////////////////
 //////send message
 
-const checkInputField = function (inputField) {
+const checkInputField = function () {
   const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   if (
@@ -212,8 +220,8 @@ const sendEmail = function () {
   });
 };
 
-const map = L.map("map").setView([44.8571126, 17.5214822], 12);
-console.log(L);
+const map = L.map("map").setView([50.11116033059521, 8.621453205796017], 12);
+
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',

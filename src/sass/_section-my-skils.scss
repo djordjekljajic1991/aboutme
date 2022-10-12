@@ -40,6 +40,9 @@
   @include respond(tab-port) {
     transform: rotate(0deg) translate(5rem, 15rem) rotate(180deg);
   }
+  @include respond(small-phone) {
+    transform: rotate(0deg) translate(5rem, 7rem) rotate(180deg);
+  }
 }
 @keyframes spin {
   0% {

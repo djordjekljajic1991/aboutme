@@ -63,6 +63,22 @@
     opacity: 1;
   }
 }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0.4;
+    transform: translate(-10rem, -10rem);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translate(2rem, 2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 .animation-observer {
   .blast-child:first-child {
     opacity: 0;

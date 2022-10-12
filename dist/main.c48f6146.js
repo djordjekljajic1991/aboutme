@@ -126,7 +126,6 @@ var outside = document.querySelector(".navigation-lists");
 openMNB.addEventListener("click", function (e) {
   e.preventDefault();
   navList.classList.add("mobile_navigation");
-  navList;
   closeMNB.classList.remove("hidden");
   openMNB.classList.add("hidden");
 }); // outside.addEventListener("click", function (e) {
@@ -146,7 +145,8 @@ var blasts = document.querySelectorAll(".blast");
 var blastsHome = [];
 var blastsAbout = [];
 var blastsContact = [];
-var blastsMySkills = []; ///////smoooth scrolling
+var blastsMySkills = [];
+var blastsWork = []; ///////smoooth scrolling
 ////////////////////
 
 var links = document.querySelectorAll(".lists_link");
@@ -170,7 +170,8 @@ blasts.forEach(function (blast) {
     return blastsContact.push(blast);
   }
 
-  if (blast.closest(".section-my-skills")) return blastsMySkills.push(blast);else return blastsAbout.push(blast);
+  if (blast.closest(".section-my-skills")) return blastsMySkills.push(blast);
+  if (blast.closest(".section-work")) return blastsWork.push(blast);else return blastsAbout.push(blast);
 });
 
 var addAnimationClassList = function addAnimationClassList(blast) {
@@ -214,6 +215,12 @@ var observer = new IntersectionObserver(function (entries) {
         observer.unobserve(entry.target);
       }
 
+      if (entry.target.classList.contains("blast-child-work")) {
+        entry.target.classList.add("animation-blast-child-about");
+        animationFunc(blastsWork);
+        observer.unobserve(entry.target);
+      }
+
       if (entry.target.classList.contains("blast-child-contact")) {
         animationFunc(blastsContact);
         entry.target.classList.add("animation-blast-child-contact");
@@ -225,6 +232,7 @@ var observer = new IntersectionObserver(function (entries) {
 observer.observe(document.querySelector(".section-home"));
 observer.observe(document.querySelector(".blast-child-about"));
 observer.observe(document.querySelector(".section-my-skills"));
+observer.observe(document.querySelector(".blast-child-work"));
 observer.observe(document.querySelector(".blast-child-contact")); /////////////////////////////////
 ///////border botom animation
 
@@ -267,7 +275,7 @@ inputField.forEach(function (el) {
 }); ///////////////////////////////////
 //////send message
 
-var checkInputField = function checkInputField(inputField) {
+var checkInputField = function checkInputField() {
   var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   if (inputValue.getAttribute("type") === "email" && !inputValue.value.match(mailFormat)) {
@@ -316,8 +324,7 @@ var sendEmail = function sendEmail() {
   });
 };
 
-var map = L.map("map").setView([44.8571126, 17.5214822], 12);
-console.log(L);
+var map = L.map("map").setView([50.11116033059521, 8.621453205796017], 12);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map); // var myIcon = new L.icon({
@@ -360,7 +367,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52036" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60920" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
